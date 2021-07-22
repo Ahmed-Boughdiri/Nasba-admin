@@ -1,0 +1,32 @@
+
+.navbar {
+    height: 60px;
+    width: 100vw;
+    background-color: #FFD800;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-brand {
+    height: 45px;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.navbar-brand>img {
+    height: 100%;
+}
+.nasba-brand-title {
+    transform: translate(5px, 0px);
+}
+.navbar-email {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(8px);
+    cursor: pointer;
+}

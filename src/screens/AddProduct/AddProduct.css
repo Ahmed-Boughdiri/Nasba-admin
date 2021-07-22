@@ -1,0 +1,10 @@
+
+.add-product-form-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.add-product-form-input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
