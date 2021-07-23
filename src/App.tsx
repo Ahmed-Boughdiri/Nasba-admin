@@ -11,12 +11,16 @@ import {
   CompletedDeliveries,
   Deliveries,
   Product,
-  Delivery
+  Delivery,
+  Login,
+  Signup
 } from "screens";
 
 const App = () =>(
   <Router>
     <Switch>
+      <Route exact path="/" component={Login} />
+      <Route exact path="/signup" component={Signup} />
       <Route exact path="/products" component={Products} />
       <Route exact path="/deliveries" component={Deliveries} />
       <Route exact path="/add/product" component={AddProduct} />

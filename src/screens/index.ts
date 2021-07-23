@@ -4,6 +4,8 @@ import AddProduct from "./AddProduct/AddProduct";
 import CompletedDeliveries from "./CompletedDeliveries/CompletedDeliveries";
 import Product from "./Product/Product";
 import Delivery from "./Delivery/Delivery";
+import Login from "./Login/Login";
+import Signup from "./Signup/Signup";
 
 export {
     Products,
@@ -11,5 +13,7 @@ export {
     AddProduct,
     CompletedDeliveries,
     Product,
-    Delivery
+    Delivery,
+    Login,
+    Signup
 }

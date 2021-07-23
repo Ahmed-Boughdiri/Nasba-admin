@@ -6,6 +6,7 @@ import useHandleAddProduct from "./AddProduct/useHandleAddProduct";
 import useGetDeliveries from "./Deliveries/useGetDeliveries";
 import useHandleDeliveryMoreInfo from "./Deliveries/useHandleMoreInfo";
 import useGetCompletedDeliveries from "./CompletedDeliveries/useGetCompletedDeliveries";
+import useHandleSignUp from "./Signup/useHandleSignUp";
 
 export {
     useNavigator,
@@ -15,5 +16,6 @@ export {
     useHandleAddProduct,
     useGetDeliveries,
     useHandleDeliveryMoreInfo,
-    useGetCompletedDeliveries
+    useGetCompletedDeliveries,
+    useHandleSignUp
 }

@@ -1,0 +1,21 @@
+
+.login {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-container {
+    width: 95%;
+    max-width: 400px;
+}
+.login-form-input-group {
+    margin-bottom: 10px;
+}
+.login-form-label {
+    margin-bottom: 5px;
+}
+.login-form-button-title {
+    color: #fff !important;
+}
