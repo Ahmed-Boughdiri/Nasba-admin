@@ -10,7 +10,8 @@ import {
   AddProduct,
   CompletedDeliveries,
   Deliveries,
-  Product
+  Product,
+  Delivery
 } from "screens";
 
 const App = () =>(
@@ -21,6 +22,7 @@ const App = () =>(
       <Route exact path="/add/product" component={AddProduct} />
       <Route exact path="/completed/deliveries" component={CompletedDeliveries} />
       <Route exact path="/product" component={Product} />
+      <Route exact path="/delivery" component={Delivery} />
     </Switch>
   </Router>
 )

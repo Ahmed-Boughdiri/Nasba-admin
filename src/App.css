@@ -8,7 +8,4 @@ html, body {
   margin: 0;
   padding: 0;
 }
-.tabel-column-container>* {
-  transform: translate(15px, 8px);
-}
 

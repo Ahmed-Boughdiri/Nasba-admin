@@ -1,0 +1,8 @@
+
+.products {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.products-table-column-container>* {
+    transform: translate(3px, 5px);
+}

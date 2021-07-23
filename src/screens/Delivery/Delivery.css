@@ -1,0 +1,28 @@
+
+.delivery {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.delivery-details-table-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.delivery-details-table-item.first {
+    margin-top: 30px;
+}
+.delivery-details-table-item.last {
+    margin-bottom: 40px;
+}
+.delivery-details-product-thumbnails {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+.delivery-details-product-thumbnail-container {
+    height: 250px;
+    margin-right: 20px;
+}
+.delivery-details-product-thumbnail-container>img {
+    height: 100%;
+}

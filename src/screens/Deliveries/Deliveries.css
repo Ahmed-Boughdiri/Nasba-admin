@@ -1,0 +1,7 @@
+
+.deliveries {
+    margin-top: 20px;
+}
+.deliveries-list-table-item>p {
+    transform: translate(3px, 7px);
+}

@@ -1,0 +1,8 @@
+
+.completed-deliveries {
+    margin-top: 20px;
+}
+.completed-deliveries-list-table-item>p {
+    transform: translate(3px, 7px);
+}
+
