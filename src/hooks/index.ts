@@ -7,6 +7,7 @@ import useGetDeliveries from "./Deliveries/useGetDeliveries";
 import useHandleDeliveryMoreInfo from "./Deliveries/useHandleMoreInfo";
 import useGetCompletedDeliveries from "./CompletedDeliveries/useGetCompletedDeliveries";
 import useHandleSignUp from "./Signup/useHandleSignUp";
+import useHandleLogin from "./Login/useHandleLogin";
 
 export {
     useNavigator,
@@ -17,5 +18,6 @@ export {
     useGetDeliveries,
     useHandleDeliveryMoreInfo,
     useGetCompletedDeliveries,
-    useHandleSignUp
+    useHandleSignUp,
+    useHandleLogin
 }

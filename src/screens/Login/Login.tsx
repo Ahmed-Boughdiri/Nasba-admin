@@ -7,8 +7,13 @@ import {
 } from "react-bootstrap";
 import { Title } from "components";
 import { RouteComponentProps } from "react-router";
+import { useHandleLogin } from "hooks";
 
 const Login:React.FC<RouteComponentProps> = ({ history }) =>{
+    const {
+        formState,
+        handleLogin
+    } = useHandleLogin(history);
     return (
         <div className="login">
             <Card className="login-form-container">
@@ -26,6 +31,9 @@ const Login:React.FC<RouteComponentProps> = ({ history }) =>{
                             </Title>
                             <FormControl 
                                 placeholder="Enter Your Email"
+                                type="email"
+                                value={formState.state.email}
+                                onChange={formState.controllers.handleEmail}
                             />
                         </div>
                         <div className="login-form-input-group">
@@ -37,6 +45,9 @@ const Login:React.FC<RouteComponentProps> = ({ history }) =>{
                             </Title>
                             <FormControl 
                                 placeholder="Enter Your Password"
+                                type="password"
+                                value={formState.state.password}
+                                onChange={formState.controllers.handlePassword}
                             />
                         </div>
                     </Container>
@@ -46,6 +57,7 @@ const Login:React.FC<RouteComponentProps> = ({ history }) =>{
                         variant="primary"
                         className="mx-1"
                         size="lg"
+                        onClick={handleLogin}
                     >
                         <Title 
                             className="login-form-button-title"
