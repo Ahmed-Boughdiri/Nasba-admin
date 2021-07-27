@@ -12,6 +12,7 @@ import {
     Card
 } from "react-bootstrap";
 import "./Product.css";
+import { handleProductStatus } from "utils";
 
 const Products:React.FC<RouteComponentProps> = ({ history }) =>{
     useSetTabIndex(0);
@@ -61,7 +62,9 @@ const Products:React.FC<RouteComponentProps> = ({ history }) =>{
                                                 <p>{product.size}</p>
                                             </td>
                                             <td className="products-table-column-container">
-                                                <Badge bg="success">{product.status}</Badge>
+                                                <Badge bg={handleProductStatus(product.status).bg}>
+                                                    {product.status}
+                                                </Badge>
                                             </td>
                                             <td>
                                                 <Button 

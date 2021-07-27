@@ -8,7 +8,7 @@ const useHandleFormState = () =>{
     const [size, setSize] = useState("");
     const [genre, setGenre] = useState("");
     const [status, setStatus] = useState("AVAILABLE");
-    const [thumbnail, setThumbnail] = useState<any>("");
+    const [thumbnail, setThumbnail] = useState<File[]|[]>([]);
     return {
         state: {
             name,
@@ -36,7 +36,20 @@ const useHandleFormState = () =>{
             handleStatus: 
                 (e:React.ChangeEvent<HTMLInputElement>) => setStatus(e.target.value),
             handleThumbnail: 
-                (e:React.ChangeEvent<HTMLInputElement>) => setThumbnail(e.target.value),
+                (e:React.ChangeEvent<HTMLInputElement>) => {
+                    console.log("File Form: ", e.target.files);
+                    setThumbnail(_ =>{
+                        if(e.target.files) {
+                            const result:File[] = [];
+                            for(let i=0;i<e.target.files.length;i++) {
+                                result.push(e.target.files[i]);
+                            }
+                            return result;
+                        } else {
+                            return []
+                        }
+                    })
+                },
         }
     }
 }

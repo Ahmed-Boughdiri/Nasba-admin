@@ -14,5 +14,5 @@ export interface DeliveryProps {
     productDiscountPrice: Number;
     productSize: String;
     productGenre: String;
-    productThumbnail: String;
+    productThumbnail: String[];
 }

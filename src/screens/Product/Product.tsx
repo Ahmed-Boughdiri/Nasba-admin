@@ -12,12 +12,13 @@ import {
     Button
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { ProductProps } from "types/Product";
 
 import tshirt from "assets/levis-tshirt.png";
 
 const Product:React.FC<RouteComponentProps> = ({ history }) =>{
     useSetTabIndex(0);
-    const product = useSelector((state: any) => state.productReducer);
+    const product:ProductProps = useSelector((state: any) => state.productReducer);
     return (
         <Page history={history}>
             <div className="product-info-card-container">
@@ -34,7 +35,7 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                 <Col md={9}>
                                     <FormControl  
                                         disabled={true}
-                                        value={product.name}
+                                        value={product.name as string}
                                     />
                                 </Col>
                             </Row>
@@ -45,7 +46,7 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                 <Col md={9}>
                                     <FormControl  
                                         disabled={true}
-                                        value={product.label}
+                                        value={product.label as string}
                                     />
                                 </Col>
                             </Row>
@@ -60,17 +61,21 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                     />
                                 </Col>
                             </Row>
-                            <Row className="product-details-table-item">
-                                <Col md={3}>
-                                    <Title fontSize="18px">Product Discount Price: </Title>
-                                </Col>
-                                <Col md={9}>
-                                    <FormControl  
-                                        disabled={true}
-                                        value="45.00$"
-                                    />
-                                </Col>
-                            </Row>
+                            {
+                                product.discountPrice && (
+                                    <Row className="product-details-table-item">
+                                        <Col md={3}>
+                                            <Title fontSize="18px">Product Discount Price: </Title>
+                                        </Col>
+                                        <Col md={9}>
+                                            <FormControl  
+                                                disabled={true}
+                                                value="45.00$"
+                                            />
+                                        </Col>
+                                    </Row>
+                                )
+                            }
                             <Row className="product-details-table-item">
                                 <Col md={3}>
                                     <Title fontSize="18px">Product Size(s): </Title>
@@ -78,7 +83,7 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                 <Col md={9}>
                                     <FormControl  
                                         disabled={true}
-                                        value={product.size}
+                                        value={product.size as string}
                                     />
                                 </Col>
                             </Row>
@@ -89,7 +94,7 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                 <Col md={9}>
                                     <FormControl  
                                         disabled={true}
-                                        value={product.genre}
+                                        value={product.genre as string}
                                     />
                                 </Col>
                             </Row>
@@ -104,21 +109,29 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                     />
                                 </Col>
                             </Row>
-                            <Row className="product-details-table-item">
-                                <Col md={12}>
-                                    <Title fontSize="18px">Thumbnail(s): </Title>
-                                </Col>
-                                <Col md={12}>
-                                    <div className="product-details-thumbnails">
-                                        <div className="product-details-thumbnail-container">
-                                            <img 
-                                                src={tshirt}
-                                                alt="" 
-                                            />
-                                        </div>
-                                    </div>
-                                </Col>
-                            </Row>
+                            {
+                                product.thumbnail && (
+                                    <Row className="product-details-table-item">
+                                        <Col md={12}>
+                                            <Title fontSize="18px">Thumbnail(s): </Title>
+                                        </Col>
+                                        <Col md={12}>
+                                            <div className="product-details-thumbnails">
+                                                {
+                                                    product.thumbnail.map(thumbnail =>(
+                                                        <div className="product-details-thumbnail-container">
+                                                            <img 
+                                                                src={`http://localhost:5000/${thumbnail}`}
+                                                                alt="" 
+                                                            />
+                                                        </div>
+                                                    ))
+                                                }
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                )
+                            }
                         </Container>
                     </Card.Body>
                     <Card.Footer>

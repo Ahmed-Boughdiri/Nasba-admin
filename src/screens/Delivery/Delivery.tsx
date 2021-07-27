@@ -173,12 +173,16 @@ const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
                             </Col>
                         </Row>
                         <div className="delivery-details-product-thumbnails">
-                            <div className="delivery-details-product-thumbnail-container">
-                                <img 
-                                    src={tshirt}
-                                    alt="" 
-                                />
-                            </div>
+                            {
+                                delivery.productThumbnail.map(thumbnail =>(
+                                    <div className="delivery-details-product-thumbnail-container">
+                                        <img 
+                                            src={`http://localhost:5000/${thumbnail}`}
+                                            alt="" 
+                                        />
+                                    </div>
+                                ))
+                            }
                         </div>
                     </Card.Body>
                 </Card>

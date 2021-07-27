@@ -1,5 +1,5 @@
 import useHandleFormState from "./useHandleFormState";
-import { sendQuery } from "global";
+import { sendQuery, uploadImage } from "global";
 import { useDispatch } from "react-redux";
 import { History } from "history";
 
@@ -16,26 +16,30 @@ const useHandleAddProduct = (history: History) =>{
                         name: "${formState.state.name}",
                         label: "${formState.state.label}",
                         price: ${formState.state.price},
-                        discountPrice: "${formState.state.discountPrice}",
+                        discountPrice: ${formState.state.discountPrice},
                         size: "${formState.state.size}",
                         genre: "${formState.state.genre}",
-                        thumbnail: "${formState.state.thumbnail}",
-                        status: "${formState.state.status}"
+                        status: "AVAILABLE"
                     }) {
                         name,
                         label,
                         price,
+                        discountPrice,
                         size,
                         genre,
                         thumbnail,
-                        status
+                        status,
+                        id
                     }
                 }
             `);
-            console.log("Response: ", result);
+            const thumbnail = await uploadImage(formState.state.thumbnail, result.createProduct.id);
             dispatch({
                 type: "STORE_PRODUCT_DATA",
-                payload: result.createProduct
+                payload: {
+                    ...result.createProduct,
+                    thumbnail
+            }
             });
             history.push("/product");
         } catch(err) {
