@@ -1,4 +1,4 @@
-import { Page } from "components";
+import { Page, Modal } from "components";
 import { RouteComponentProps } from "react-router";
 import { useSetTabIndex } from "hooks";
 import { Title } from "components";
@@ -11,14 +11,13 @@ import {
     FormControl,
     Button
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ProductProps } from "types/Product";
-
-import tshirt from "assets/levis-tshirt.png";
 
 const Product:React.FC<RouteComponentProps> = ({ history }) =>{
     useSetTabIndex(0);
     const product:ProductProps = useSelector((state: any) => state.productReducer);
+    const dispatch = useDispatch();
     return (
         <Page history={history}>
             <div className="product-info-card-container">
@@ -138,24 +137,51 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                         <Button 
                             variant="primary"
                             className="mx-1"
+                            onClick={() =>{
+                                dispatch({
+                                    type: "TOGGLE_MAKE_DELIVERY_MODAL",
+                                    payload: true
+                                })
+                            }}
                         >
                             Make a Delivery
                         </Button>
                         <Button 
                             variant="danger"
                             className="mx-1"
+                            onClick={() =>{
+                                dispatch({
+                                    type: "TOGGLE_CONFIRM_DELETE_PRODUCT_MODAL",
+                                    payload: true
+                                })
+                            }}
                         >
                             Delete Product
                         </Button>
                         <Button 
                             variant="success"
                             className="mx-1"
+                            onClick={() =>{
+                                dispatch({
+                                    type: "TOGGLE_MODIFY_PRODUCT_DETAILS_MODAL",
+                                    payload: true
+                                })
+                            }}
                         >
                             Modify Details
                         </Button>
                     </Card.Footer>
                 </Card>
             </div>
+            <Modal type="make-delivery" />
+            <Modal 
+                type="confirm-delete-product" 
+                history={history}
+            />
+            <Modal 
+                type="modify-product-details" 
+                history={history} 
+            />
         </Page>
     )
 }

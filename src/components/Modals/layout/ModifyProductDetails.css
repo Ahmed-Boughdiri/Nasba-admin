@@ -1,0 +1,25 @@
+
+.modify-product-details {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+.modify-product-details-card {
+    width: 500px;
+    padding-bottom: 10px;
+}
+.modify-product-details-item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.modify-product-details-item-container.status {
+    margin-bottom: 20px;
+}

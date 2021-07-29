@@ -8,6 +8,9 @@ import useHandleDeliveryMoreInfo from "./Deliveries/useHandleMoreInfo";
 import useGetCompletedDeliveries from "./CompletedDeliveries/useGetCompletedDeliveries";
 import useHandleSignUp from "./Signup/useHandleSignUp";
 import useHandleLogin from "./Login/useHandleLogin";
+import useHandleMakeDelivery from "./Product/useHadleMakeDelivery";
+import useHandleDeleteProduct from "./Product/useHandleDeleteProduct";
+import useHandleModifyProductDetails from "./Product/useHandleModifyProductDetails";
 
 export {
     useNavigator,
@@ -19,5 +22,8 @@ export {
     useHandleDeliveryMoreInfo,
     useGetCompletedDeliveries,
     useHandleSignUp,
-    useHandleLogin
+    useHandleLogin,
+    useHandleMakeDelivery,
+    useHandleDeleteProduct,
+    useHandleModifyProductDetails
 }

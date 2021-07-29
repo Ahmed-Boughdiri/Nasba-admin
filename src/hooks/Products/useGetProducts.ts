@@ -9,13 +9,14 @@ const useGetProducts = () =>{
             const data = await sendQuery(`
                 query {
                     products {
-                    name,
-                    label,
-                    price,
-                    size,
-                    genre,
-                    thumbnail,
-                    status
+                        name,
+                        label,
+                        price,
+                        size,
+                        genre,
+                        thumbnail,
+                        status,
+                        id
                     }
                 }
             `);
