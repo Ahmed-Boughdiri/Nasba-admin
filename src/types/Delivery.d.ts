@@ -8,6 +8,7 @@ export interface DeliveryProps {
     email: String;
     phoneNumber: Number;
     status: String;
+    id: String;
     productName: String;
     productLabel: String;
     productPrice: Number;
@@ -15,4 +16,5 @@ export interface DeliveryProps {
     productSize: String;
     productGenre: String;
     productThumbnail: String[];
+    productID: String
 }

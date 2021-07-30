@@ -6,6 +6,9 @@ import userReducer from "reducers/UserReducer";
 import makeDeliveryModalReducer from "reducers/MakeDeliveryModalReducer";
 import confirmDeleteProductReducer from "reducers/ConfirmDeleteProductReducer";
 import modifyProductDetailsReducer from "reducers/ModifyProductDetailsReducer";
+import confirmDeliveryReducer from "reducers/ConfirmDeliveryReducer";
+import confirmCancelDeliveryReducer from "reducers/ConfirmCancelDeliveryReducer";
+import editDeliveryInfoReducer from "reducers/EditDeliveryInfoReducer";
 
 export default createStore(
     combineReducers({
@@ -15,6 +18,9 @@ export default createStore(
       userReducer,
       makeDeliveryModalReducer,
       confirmDeleteProductReducer,
-      modifyProductDetailsReducer
+      modifyProductDetailsReducer,
+      confirmDeliveryReducer,
+      confirmCancelDeliveryReducer,
+      editDeliveryInfoReducer
     })
 );

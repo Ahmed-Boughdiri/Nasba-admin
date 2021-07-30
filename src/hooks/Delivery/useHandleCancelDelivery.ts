@@ -1,14 +1,17 @@
 import { sendQuery } from "global";
-import { useState, useEffect } from "react";
-import { DeliveryProps } from "types/Delivery";
+import { History } from "history";
+import { useDispatch } from "react-redux";
 
-const useGetDeliveries = () =>{
-    const [deliveries, setDeliveries] = useState<DeliveryProps[]>([]);
-    const getDeliveries = async() =>{
+const useHandleCancelDelivery = (
+    history: History | undefined,
+    deliveryID: String
+) =>{
+    const dispatch = useDispatch();
+    const handleCancelDelivery = async() =>{
         try {
             const result = await sendQuery(`
-                query {
-                    pendingDeliveries {
+                mutation {
+                    cancelDelivery(id: "${deliveryID}") {
                         firstName,
                         lastName,
                         address,
@@ -28,16 +31,22 @@ const useGetDeliveries = () =>{
                         productID
                     }
                 }
+              
             `);
-            setDeliveries(result.pendingDeliveries);
+            console.log("Result: ", result);
+            dispatch({
+                type: "TOGGLE_CONFIRM_CANCEL_DELIVERY_MODAL",
+                payload: false
+            });
+            if(history)
+                history.push("/deliveries");
         } catch(err) {
-            console.log(err);
+            console.log("Error: ", err);
         }
     }
-    useEffect(() =>{
-        getDeliveries();
-    }, []);
-    return deliveries;
+    return {
+        handleCancelDelivery
+    }
 }
 
-export default useGetDeliveries;
+export default useHandleCancelDelivery;

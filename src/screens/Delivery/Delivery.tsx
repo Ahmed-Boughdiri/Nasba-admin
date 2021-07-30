@@ -1,4 +1,8 @@
-import { Page, Title } from "components";
+import { 
+    Page, 
+    Title,
+    Modal
+} from "components";
 import { RouteComponentProps } from "react-router";
 import "./Delivery.css";
 import { 
@@ -8,13 +12,12 @@ import {
     FormControl,
     Button
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { DeliveryProps } from "types/Delivery";
-
-import tshirt from "assets/levis-tshirt.png";
 
 const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
     const delivery:DeliveryProps = useSelector((state: any) => state.deliveryReducer);
+    const dispatch = useDispatch();
     return (
         <Page history={history}>
             <div className="delivery">
@@ -190,23 +193,53 @@ const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
                     <Button 
                         variant="success"
                         className="mx-1"
+                        onClick={() =>{
+                            dispatch({
+                                type: "TOGGLE_CONFIRM_DELIVERY_MODAL",
+                                payload: true
+                            })
+                        }}
                     >
                         Successfully Delivered
                     </Button>
                     <Button 
                         variant="primary"
                         className="mx-1"
+                        onClick={() =>{
+                            dispatch({
+                                type: "TOGGLE_EDIT_DELIVERY_MODAL",
+                                payload: true
+                            })
+                        }}
                     >
                         Edit Info
                     </Button>
                     <Button 
                         variant="danger"
                         className="mx-1"
+                        onClick={() =>{
+                            dispatch({
+                                type: "TOGGLE_CONFIRM_CANCEL_DELIVERY_MODAL",
+                                payload: true
+                            })
+                        }}
                     >
                         Cancel Delivery
                     </Button>
                 </Card.Footer>
             </div>
+            <Modal 
+                type="confirm-delivery" 
+                history={history}
+            />
+            <Modal 
+                type="confirm-cancel-delivery"
+                history={history} 
+            />
+            <Modal 
+                type="edit-delivery-info" 
+                history={history}
+            />
         </Page>
     )
 }
