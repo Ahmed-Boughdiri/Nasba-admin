@@ -15,7 +15,7 @@ import {
 const Deliveries:React.FC<RouteComponentProps> = ({ history }) =>{
     useSetTabIndex(1);
     const deliveries = useGetDeliveries();
-    const handleMoreInfo = useHandleDeliveryMoreInfo(history);
+    const handleMoreInfo = useHandleDeliveryMoreInfo(history, false);
     return (
         <Page history={history}>
             <div className="deliveries">

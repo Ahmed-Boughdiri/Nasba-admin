@@ -38,7 +38,7 @@ const useHandleState = () =>{
             handlePhoneNumber: 
                 (e:React.ChangeEvent<HTMLInputElement>) => setPhoneNumber(+e.target.value),
             handleStatus: 
-                (e:React.ChangeEvent<HTMLInputElement>) => setStatus(e.target.value),
+                (e:React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value),
             handleProductID: 
                 (e:React.ChangeEvent<HTMLInputElement>) => setProductID(e.target.value),
         },

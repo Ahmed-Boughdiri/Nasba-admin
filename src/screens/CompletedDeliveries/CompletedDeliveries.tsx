@@ -15,7 +15,7 @@ import "./CompletedDeliveries.css";
 const CompletedDeliveries:React.FC<RouteComponentProps> = ({ history }) =>{
     useSetTabIndex(3);
     const completedDeliveries = useGetCompletedDeliveries();
-    const handleMoreInfo = useHandleDeliveryMoreInfo(history);
+    const handleMoreInfo = useHandleDeliveryMoreInfo(history, true);
     return (
         <Page history={history}>
             <div className="completed-deliveries">

@@ -1,7 +1,8 @@
 import { 
     Page, 
     Title,
-    Modal
+    Modal,
+    Carousel
 } from "components";
 import { RouteComponentProps } from "react-router";
 import "./Delivery.css";
@@ -17,6 +18,7 @@ import { DeliveryProps } from "types/Delivery";
 
 const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
     const delivery:DeliveryProps = useSelector((state: any) => state.deliveryReducer);
+    const isCompletedDelivery:Boolean = useSelector((state: any) => state.completedDeliveryReducer);
     const dispatch = useDispatch();
     return (
         <Page history={history}>
@@ -176,56 +178,68 @@ const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
                             </Col>
                         </Row>
                         <div className="delivery-details-product-thumbnails">
-                            {
-                                delivery.productThumbnail.map(thumbnail =>(
-                                    <div className="delivery-details-product-thumbnail-container">
-                                        <img 
-                                            src={`http://localhost:5000/${thumbnail}`}
-                                            alt="" 
-                                        />
-                                    </div>
-                                ))
-                            }
+                            <Carousel thumbnails={delivery.productThumbnail} />
                         </div>
                     </Card.Body>
                 </Card>
                 <Card.Footer>
-                    <Button 
-                        variant="success"
-                        className="mx-1"
-                        onClick={() =>{
-                            dispatch({
-                                type: "TOGGLE_CONFIRM_DELIVERY_MODAL",
-                                payload: true
-                            })
-                        }}
-                    >
-                        Successfully Delivered
-                    </Button>
-                    <Button 
-                        variant="primary"
-                        className="mx-1"
-                        onClick={() =>{
-                            dispatch({
-                                type: "TOGGLE_EDIT_DELIVERY_MODAL",
-                                payload: true
-                            })
-                        }}
-                    >
-                        Edit Info
-                    </Button>
-                    <Button 
-                        variant="danger"
-                        className="mx-1"
-                        onClick={() =>{
-                            dispatch({
-                                type: "TOGGLE_CONFIRM_CANCEL_DELIVERY_MODAL",
-                                payload: true
-                            })
-                        }}
-                    >
-                        Cancel Delivery
-                    </Button>
+                    {
+                        isCompletedDelivery ? (
+                            <>
+                                <Button 
+                                    variant="danger"
+                                    className="mx-1"
+                                    onClick={() =>{
+                                        dispatch({
+                                            type: "TOGGLE_CONFIRM_CANCEL_DELIVERY_MODAL",
+                                            payload: true
+                                        })
+                                    }}
+                                >
+                                    Delete Delivery
+                                </Button>
+                            </>
+                        ) : (
+                            <>
+                                <Button 
+                                    variant="success"
+                                    className="mx-1"
+                                    onClick={() =>{
+                                        dispatch({
+                                            type: "TOGGLE_CONFIRM_DELIVERY_MODAL",
+                                            payload: true
+                                        })
+                                    }}
+                                >
+                                    Successfully Delivered
+                                </Button>
+                                <Button 
+                                    variant="primary"
+                                    className="mx-1"
+                                    onClick={() =>{
+                                        dispatch({
+                                            type: "TOGGLE_EDIT_DELIVERY_MODAL",
+                                            payload: true
+                                        })
+                                    }}
+                                >
+                                    Edit Info
+                                </Button>
+                                <Button 
+                                    variant="danger"
+                                    className="mx-1"
+                                    onClick={() =>{
+                                        dispatch({
+                                            type: "TOGGLE_CONFIRM_CANCEL_DELIVERY_MODAL",
+                                            payload: true
+                                        })
+                                    }}
+                                >
+                                    Cancel Delivery
+                                </Button>
+                            </>
+                        )
+                    }
                 </Card.Footer>
             </div>
             <Modal 

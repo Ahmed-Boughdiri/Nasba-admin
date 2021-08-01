@@ -1,5 +1,5 @@
 import useHandleModifyProductDetailsState from "./useHandleModifyProductDetailsState";
-import { sendQuery } from "global";
+import { sendQuery, uploadImage } from "global";
 import { useDispatch } from "react-redux";
 import { History } from "history";
 
@@ -73,6 +73,10 @@ const useHandleModifyProductDetails = (
                     }
                 }
             `);
+            await uploadImage(
+                formState.state.productThumbnail, 
+                result.modifyProductDetails.id
+            );
             formState.emptyState();
             dispatch({
                 type: "TOGGLE_MODIFY_PRODUCT_DETAILS_MODAL",

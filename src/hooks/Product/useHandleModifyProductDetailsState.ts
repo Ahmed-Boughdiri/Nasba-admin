@@ -7,8 +7,8 @@ const useHandleModifyProductDetailsState = () =>{
     const [productDiscountPrice, setProductDiscountPrice] = useState<Number|null>(null);
     const [productSize, setProductSize] = useState("");
     const [productGenre, setProductGenre] = useState("");
-    const [productStatus, setProductStatus] = useState("AVAILABLE");
-    const [productThumbnail, setProductThumbnail] = useState<FileList|null>(null); 
+    const [productStatus, setProductStatus] = useState("");
+    const [productThumbnail, setProductThumbnail] = useState<File[]|[]>([]); 
     return {
         state: {
             productName,
@@ -34,9 +34,21 @@ const useHandleModifyProductDetailsState = () =>{
             handleProductGenre: 
                 (e:React.ChangeEvent<HTMLInputElement>) => setProductGenre(e.target.value),
             handleProductStatus: 
-                (e:React.ChangeEvent<HTMLInputElement>) => setProductStatus(e.target.value),
+                (e:React.ChangeEvent<HTMLSelectElement>) => setProductStatus(e.target.value),
             handleProductThumbnail: 
-                (e:React.ChangeEvent<HTMLInputElement>) => setProductThumbnail(e.target.files && e.target.files),
+                (e:React.ChangeEvent<HTMLInputElement>) => {
+                    setProductThumbnail(_ =>{
+                        if(e.target.files) {
+                            const result:File[] = [];
+                            for(let i=0;i<e.target.files.length;i++) {
+                                result.push(e.target.files[i]);
+                            }
+                            return result;
+                        } else {
+                            return []
+                        }
+                    });
+                },
         },
         emptyState: () =>{
             setProductName("");
@@ -46,7 +58,7 @@ const useHandleModifyProductDetailsState = () =>{
             setProductSize("");
             setProductGenre("");
             setProductSize("");
-            setProductThumbnail(null);
+            setProductThumbnail([]);
         }
     }
 }

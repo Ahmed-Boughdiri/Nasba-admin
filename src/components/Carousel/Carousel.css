@@ -1,0 +1,31 @@
+
+.product-details-thumbnails {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    margin: 15px auto 0;
+}
+.product-details-thumbnail-container {
+    height: 250px;
+    margin-right: 20px;
+}
+.product-details-thumbnail-container>img {
+    height: 100%;
+    cursor: pointer;
+}
+.carousel:nth-child(2) {
+    display: none;
+}
+.carousel>.thumbs-wrapper.axis-vertical {
+    display: none;
+}
+.carousel-status {
+    display: none;
+}
+.control-arrow {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    opacity: 1 !important;
+}
+.control-arrow.control-next {
+    transform: translateX(-65%);
+}

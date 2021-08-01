@@ -8,15 +8,4 @@
     align-items: center;
     margin-bottom: 15px;
 }
-.product-details-thumbnails {
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-}
-.product-details-thumbnail-container {
-    height: 250px;
-    margin-right: 20px;
-}
-.product-details-thumbnail-container>img {
-    height: 100%;
-}
+

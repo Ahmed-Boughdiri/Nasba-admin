@@ -123,9 +123,12 @@ const EditDeliveryInfoModal:React.FC<{ history?: History }> = ({ history }) =>{
                                             <Title>Status: </Title>
                                         </Col>
                                         <Col md={7}>
-                                            <select>
-                                                <option>PENDING</option>
-                                                <option>COMPLETED</option>
+                                            <select
+                                                value={formState.state.status}
+                                                onChange={formState.controllers.handleStatus}
+                                            >
+                                                <option value="PENDING">PENDING</option>
+                                                <option value="COMPLETED">COMPLETED</option>
                                             </select>
                                         </Col>
                                     </Row>

@@ -19,7 +19,7 @@ const useHandleAddProduct = (history: History) =>{
                         discountPrice: ${formState.state.discountPrice},
                         size: "${formState.state.size}",
                         genre: "${formState.state.genre}",
-                        status: "AVAILABLE"
+                        status: "${formState.state.status}"
                     }) {
                         name,
                         label,
@@ -33,7 +33,10 @@ const useHandleAddProduct = (history: History) =>{
                     }
                 }
             `);
-            const thumbnail = await uploadImage(formState.state.thumbnail, result.createProduct.id);
+            const thumbnail = await uploadImage(
+                formState.state.thumbnail, 
+                result.createProduct.id
+            );
             dispatch({
                 type: "STORE_PRODUCT_DATA",
                 payload: {

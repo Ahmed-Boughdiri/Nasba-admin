@@ -1,4 +1,8 @@
-import { Page, Modal } from "components";
+import { 
+    Page, 
+    Modal,
+    Carousel
+} from "components";
 import { RouteComponentProps } from "react-router";
 import { useSetTabIndex } from "hooks";
 import { Title } from "components";
@@ -115,18 +119,7 @@ const Product:React.FC<RouteComponentProps> = ({ history }) =>{
                                             <Title fontSize="18px">Thumbnail(s): </Title>
                                         </Col>
                                         <Col md={12}>
-                                            <div className="product-details-thumbnails">
-                                                {
-                                                    product.thumbnail.map(thumbnail =>(
-                                                        <div className="product-details-thumbnail-container">
-                                                            <img 
-                                                                src={`http://localhost:5000/${thumbnail}`}
-                                                                alt="" 
-                                                            />
-                                                        </div>
-                                                    ))
-                                                }
-                                            </div>
+                                            <Carousel thumbnails={product.thumbnail} />
                                         </Col>
                                     </Row>
                                 )

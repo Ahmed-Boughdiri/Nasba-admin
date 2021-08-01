@@ -110,7 +110,10 @@ const AddProduct:React.FC<RouteComponentProps> = ({ history }) =>{
                                     <Title fontSize="18px">Product Status: </Title>
                                 </Col>
                                 <Col md={9}>
-                                    <select>
+                                    <select
+                                        value={formState.state.status}
+                                        onChange={formState.controllers.handleStatus}
+                                    >
                                         <option value="AVAILABLE">AVAILABLE</option>
                                         <option value="NOT AVAILABLE">UNAVAILALBE</option>
                                     </select>

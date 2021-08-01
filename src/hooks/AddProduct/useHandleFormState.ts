@@ -34,10 +34,9 @@ const useHandleFormState = () =>{
             handleGenre: 
                 (e:React.ChangeEvent<HTMLInputElement>) => setGenre(e.target.value),
             handleStatus: 
-                (e:React.ChangeEvent<HTMLInputElement>) => setStatus(e.target.value),
+                (e:React.ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value),
             handleThumbnail: 
                 (e:React.ChangeEvent<HTMLInputElement>) => {
-                    console.log("File Form: ", e.target.files);
                     setThumbnail(_ =>{
                         if(e.target.files) {
                             const result:File[] = [];
@@ -48,7 +47,7 @@ const useHandleFormState = () =>{
                         } else {
                             return []
                         }
-                    })
+                    });
                 },
         }
     }

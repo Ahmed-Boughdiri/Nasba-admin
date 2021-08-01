@@ -110,9 +110,12 @@ const ModifyProductDetails:React.FC<{ history?: History }> = ({ history }) =>{
                                             <Title>Product Status: </Title>
                                         </Col>
                                         <Col md={7}>
-                                            <select>
-                                                <option>AVAILABLE</option>
-                                                <option>NOT AVAILABLE</option>
+                                            <select
+                                                value={formState.state.productStatus}
+                                                onChange={formState.controllers.handleProductStatus}
+                                            >
+                                                <option value="AVAILABLE">AVAILABLE</option>
+                                                <option value="NOT AVAILABLE">NOT AVAILABLE</option>
                                             </select>
                                         </Col>
                                     </Row>
