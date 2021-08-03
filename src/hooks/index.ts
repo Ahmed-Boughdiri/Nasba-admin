@@ -14,6 +14,9 @@ import useHandleModifyProductDetails from "./Product/useHandleModifyProductDetai
 import useHandleConfirmDelivery from "./Delivery/useHandleConfirmDelivery";
 import useHandleCancelDelivery from "./Delivery/useHandleCancelDelivery";
 import useHandleEditDeliveryInfo from "./Delivery/useHandleEditDeliveryInfo";
+import useGetUserCredentials from "./Page/useGetUserCredentials";
+import useHandleTryToAuthenticate from "./Home/useHandleTryToAuthenticate";
+import useHandleProtectedRoute from "./Page/useHandleProtectedRoute";
 
 export {
     useNavigator,
@@ -31,5 +34,8 @@ export {
     useHandleModifyProductDetails,
     useHandleConfirmDelivery,
     useHandleCancelDelivery,
-    useHandleEditDeliveryInfo
+    useHandleEditDeliveryInfo,
+    useGetUserCredentials,
+    useHandleTryToAuthenticate,
+    useHandleProtectedRoute
 }

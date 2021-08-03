@@ -2,7 +2,7 @@ import "./Navigator.css";
 import { Text, Title } from "components";
 import { navigatorLinks } from "global";
 import { NavigatorComponentProps } from "./Props";
-import { useNavigator } from "hooks";
+import { useNavigator, useGetUserCredentials } from "hooks";
 
 import logo from "assets/logo.png";
 
@@ -11,6 +11,7 @@ const Navigator:React.FC<NavigatorComponentProps> = ({ history }) =>{
         activeTab,
         handleTabClick
     } = useNavigator(history);
+    const { user } = useGetUserCredentials();
     return (
         <div className="navigator">
             <div className="navigator-header">
@@ -23,7 +24,7 @@ const Navigator:React.FC<NavigatorComponentProps> = ({ history }) =>{
                         fontSize="17px"
                         textAlign="center"
                     >
-                        ahmedboughdiri@gmail.com
+                        {user.email}
                     </Text>
                 </div>
             </div>

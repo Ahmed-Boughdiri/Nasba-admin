@@ -6,6 +6,7 @@ import Product from "./Product/Product";
 import Delivery from "./Delivery/Delivery";
 import Login from "./Login/Login";
 import Signup from "./Signup/Signup";
+import Home from "./Home/Home";
 
 export {
     Products,
@@ -15,5 +16,6 @@ export {
     Product,
     Delivery,
     Login,
-    Signup
+    Signup,
+    Home
 }
