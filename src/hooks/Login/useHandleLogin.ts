@@ -6,10 +6,12 @@ import {
     saveTokenOnLocalStorage,
     saveUserCredentialsOnLocalStorage
 } from "utils";
+import { useState } from "react";
 
 const useHandleLogin = (history: History) =>{
     const formState = useHandleFormState();
     const dispatch = useDispatch();
+    const [error, setError] = useState("");
     const handleLogin = async() =>{
         try {
             const result = await sendQuery(`
@@ -45,15 +47,19 @@ const useHandleLogin = (history: History) =>{
                 });
                 history.push("/products");
             } else {
-                throw Error("User Not Aprroved Yet");
+                setError("User Not Approved Yet");
             }
         } catch(err) {
-            console.log("Error: ", err);
+            setError(
+                err?.response?.data.errors[0].message ||
+                "An Error Occured When Trying To Login Please Try Again"
+            );
         }
     }
     return {
         formState,
-        handleLogin
+        handleLogin,
+        error
     }
 }
 

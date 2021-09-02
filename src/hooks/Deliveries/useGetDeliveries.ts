@@ -4,6 +4,7 @@ import { DeliveryProps } from "types/Delivery";
 
 const useGetDeliveries = () =>{
     const [deliveries, setDeliveries] = useState<DeliveryProps[]>([]);
+    const [error, setError] = useState("");
     const getDeliveries = async() =>{
         try {
             const result = await sendQuery(`
@@ -31,13 +32,16 @@ const useGetDeliveries = () =>{
             `);
             setDeliveries(result.pendingDeliveries);
         } catch(err) {
-            console.log(err);
+            setError("An Error Occured While Trying To Load Deliveries, Please Try Again");
         }
     }
     useEffect(() =>{
         getDeliveries();
     }, []);
-    return deliveries;
+    return {
+        deliveries,
+        error
+    };
 }
 
 export default useGetDeliveries;

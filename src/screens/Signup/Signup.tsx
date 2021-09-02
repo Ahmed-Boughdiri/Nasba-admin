@@ -5,17 +5,27 @@ import {
     FormControl,
     Button
 } from "react-bootstrap";
-import { Title } from "components";
+import { Title, Error } from "components";
 import { RouteComponentProps } from "react-router";
 import { useHandleSignUp } from "hooks";
 
 const Signup:React.FC<RouteComponentProps> = ({ history }) =>{
     const {
         formState,
-        handleSignUp
+        handleSignUp,
+        error
     } = useHandleSignUp(history);
     return (
         <div className="signup">
+            {
+                error && (
+                    <Error 
+                        type="alert"
+                        width={450}
+                        errorMsg={error}
+                    />
+                )
+            }
             <Card className="signup-form-container">
                 <Card.Header>
                     <Title fontSize="22px">Sign Up: </Title>    
@@ -68,18 +78,6 @@ const Signup:React.FC<RouteComponentProps> = ({ history }) =>{
                 </Card.Body>
                 <Card.Footer>
                     <Button
-                        variant="primary"
-                        className="mx-1"
-                        size="lg"
-                    >
-                        <Title 
-                            className="signup-form-button-title"
-                            fontSize="16px"
-                        >
-                            LOG IN
-                        </Title>
-                    </Button>
-                    <Button
                         variant="success"
                         className="mx-1"
                         size="lg"
@@ -90,6 +88,18 @@ const Signup:React.FC<RouteComponentProps> = ({ history }) =>{
                             fontSize="16px"
                         >
                             SIGN UP
+                        </Title>
+                    </Button>
+                    <Button
+                        variant="primary"
+                        className="mx-1"
+                        size="lg"
+                    >
+                        <Title 
+                            className="signup-form-button-title"
+                            fontSize="16px"
+                        >
+                            LOG IN
                         </Title>
                     </Button>
                 </Card.Footer>

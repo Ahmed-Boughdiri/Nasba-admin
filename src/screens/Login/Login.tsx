@@ -5,17 +5,27 @@ import {
     FormControl,
     Button
 } from "react-bootstrap";
-import { Title } from "components";
+import { Title, Error } from "components";
 import { RouteComponentProps } from "react-router";
 import { useHandleLogin } from "hooks";
 
 const Login:React.FC<RouteComponentProps> = ({ history }) =>{
     const {
         formState,
-        handleLogin
+        handleLogin,
+        error
     } = useHandleLogin(history);
     return (
         <div className="login">
+            {
+                error && (
+                    <Error 
+                        type="alert"
+                        errorMsg={error}
+                        width={400}
+                    />
+                )
+            }
             <Card className="login-form-container">
                 <Card.Header>
                     <Title fontSize="22px">Login: </Title>    

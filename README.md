@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# Nasba.tn
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction:
+This project is part of the CMS (**C**ontent **M**anagement **S**ystem) for the  Nasba.tn Projects (an E-commerce platform for selling clothes and accessories), and this is the admin panel for that CMS.  
+To use this platform, you need first to create an account, and then you can access the platform and aquire all admin prevelidges (adding new products, deleting products, tracking deliveries ...)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Technical Insight
+This project is made using the MERN stack (**M**ongoDB, **E**xpress.js, **R**eactJS and **N**ode.js), and it's 100% written with Typescript, and it took us about 7 days to complete it.  
+This Projects includes many small parts that are required for developing different kind of web apps like Authentication, CRUD functionalities (**C**reate **R**ead, **U**pdate, **D**elete) and lots more.
 
-### `yarn start`
+## Features:
+- [Creating An Account](#account)
+- [Logging in](#login)
+- [Creating New Product](#new-product)
+- [Deleting Product](#delete-product)
+- [Modifying Product's Info](#modify-product)
+- [Tracking Deliveries](#deliveries)
+- [Deleting A Delivery](#delete-delivery)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### <a id="account"></a>Creating An Account:
+In order to create an account, go to the [Sign up Page](http://localhost:3000/signup) and fill out the form with the needed data, next hit the signup button and if the process of logging in went successfully you should redirected to the login page.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![nasba-admin-sign-up.gif](https://s9.gifyu.com/images/nasba-admin-sign-up.gif)](https://gifyu.com/image/GJLs)
 
-### `yarn build`
+### <a id="login"></a> Logging in:
+This process is pretty straight forward, you go to the [Login Page](http://localhost:3000/login) and enter your email and password, then hit login and if the process of authentification went successfully, you will redirected to the admin home page.  
+In case of logging out, click on the email on the navbar, in the admin panel, and then click on the logout option, pretty straight forward, isn't it ;)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### <a id="new-product"></a> Creating New Product:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To create a new product, you click on the "Add New Product" tab, then you fill the form with the necessary data, next you hit add product, and there you go, you have created you first product on the platform.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### <a id="delete-product"></a> Deleting Product:
+For deleting a product you will have to first choose the product that you want to create, then you click on the more info option, you click on the "Delete Product" option, a confirmation modal will appear, and if you sure about deleting the product, you can simply click confirm, and the product will be deleted.
 
-### `yarn eject`
+### <a id="modify-product"></a> Modifying Product's Info:
+In order to modify a product's info, you need to first choose the product that you want to modify its data, afterword, you click on the "Modify Info" option, a modal will appear, and all what you have to do is the fill out the form with the data that you want to modify and then click "Confirm".
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### <a id="#deliveries"></a> Tracking Deleveries:
+To Track the deliveries created on the e-commerce store, you simply can go to the "Deleveries List", all the deliveries made so far on the platform will be listed, if you want to preview more info for the delivery, you can click on the more info option.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### <a id="delete-delivery"></a> Deleting A Delivery:
+If you want to delete an existing delivery, first of all you need to pick the delivery you want to delete, and then you click on the more info option, then, you click on the "Cancel Delivery" option and the a confirmation modal will show up, all what you need to do now is to confirm by clicking on the "Confirm" button.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Notes:
+As mentioned above this project is part of the Nasba.tn e-commerce platform, if you want to preview the whole CMS you can check out the [e-coomerce store](http://localhost:3000/).
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Credits:
+This project is fully developed by: Ahmed Boughdiri
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Twitter: @Ahmed-Boughdiri  
+Medium: Ahmed-Boughdiri  
+Portfolio: https://ahmedboughdiri.ml/  
+GitHub: @Ahmed-Boughdiri  

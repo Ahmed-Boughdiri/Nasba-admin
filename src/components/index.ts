@@ -5,6 +5,7 @@ import Text from "./Text/Text";
 import Modal from "./Modals";
 import ImageViewer from "./ImageViwer/ImageViewer";
 import Carousel from "./Carousel/Carousel";
+import Error from "./Error";
 
 export {
     Page,
@@ -13,5 +14,6 @@ export {
     Text,
     Modal,
     ImageViewer,
-    Carousel
+    Carousel,
+    Error
 }

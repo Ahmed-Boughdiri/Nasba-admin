@@ -7,9 +7,6 @@ export default async function(query: String) {
         const res = await req.data;
         return res.data;
     } catch(err) {
-        throw Error(`
-            Error Occured While Sending Query:
-            ${JSON.stringify(err)}
-        `);
+        throw err;
     }
 }

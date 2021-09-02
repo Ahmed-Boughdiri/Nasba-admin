@@ -4,6 +4,7 @@ import { ProductProps } from "types/Product";
 
 const useGetProducts = () =>{
     const [products, setProducts] = useState<ProductProps[]>([]);
+    const [error, setError] = useState("");
     const getProducts = async() =>{
         try {
             const data = await sendQuery(`
@@ -23,13 +24,16 @@ const useGetProducts = () =>{
             console.log("Data: ", data.products);
             setProducts(data.products);
         } catch(err) {
-            console.log(err);
+            setError("An Error Has Occured While Trying To Load Products Please Try Again");
         }
     }
     useEffect(() =>{
         getProducts();
     }, []);
-    return products;
+    return {
+        products,
+        error
+    }
 }
 
 export default useGetProducts;

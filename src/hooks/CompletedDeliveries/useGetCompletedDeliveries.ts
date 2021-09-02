@@ -4,6 +4,7 @@ import { DeliveryProps } from "types/Delivery";
 
 const useGetCompletedDeliveries = () =>{
     const [completedDeliveries, setCompletedDeliveries] = useState<DeliveryProps[]>([]);
+    const [error, setError] = useState("");
     const getCompletedDeliveries = async() =>{
         try {
             const result = await sendQuery(`
@@ -27,16 +28,18 @@ const useGetCompletedDeliveries = () =>{
                     }
                 }
             `);
-            console.log("Result: ", result.completedDeliveries);
             setCompletedDeliveries(result.completedDeliveries);
         } catch(err) {
-            console.log(err);
+            setError("An Error Occured While Trying To Load Completed Deliveries Please Try Again");
         }
     }
     useEffect(() =>{
         getCompletedDeliveries();
     }, []);
-    return completedDeliveries;
+    return {
+        completedDeliveries,
+        error
+    };
 }
 
 export default useGetCompletedDeliveries;
