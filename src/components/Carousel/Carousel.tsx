@@ -16,7 +16,7 @@ const Carousel:React.FC<{ thumbnails?: String[] }> = ({ thumbnails=[] }) =>{
                         <div 
                             className="carousel-component-container"
                             onClick={() =>{
-                                setProductThumbnail(`http://localhost:5000/${thumbnail}`);
+                                setProductThumbnail(`https://nasba-backend.herokuapp.com/${thumbnail}`);
                                 dispatch({
                                     type: "TOGGLE_IMAGE_VIEWER_MODAL",
                                     payload: true
@@ -24,7 +24,7 @@ const Carousel:React.FC<{ thumbnails?: String[] }> = ({ thumbnails=[] }) =>{
                             }}
                         >
                             <img 
-                                src={`http://localhost:5000/${thumbnail}`}
+                                src={`https://nasba-backend.herokuapp.com/${thumbnail}`}
                                 alt="" 
                             />
                         </div>
