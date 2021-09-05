@@ -4,7 +4,6 @@ import {
     Modal,
     Carousel
 } from "components";
-import { RouteComponentProps } from "react-router";
 import "./Delivery.css";
 import { 
     Card, 
@@ -15,8 +14,13 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { DeliveryProps } from "types/Delivery";
+import { History } from "history";
 
-const Delivery:React.FC<RouteComponentProps> = ({ history }) =>{
+interface DeliveryComponentProps {
+    history: History;
+}
+
+const Delivery:React.FC<DeliveryComponentProps> = ({ history }) =>{
     const delivery:DeliveryProps = useSelector((state: any) => state.deliveryReducer);
     const isCompletedDelivery:Boolean = useSelector((state: any) => state.completedDeliveryReducer);
     const dispatch = useDispatch();

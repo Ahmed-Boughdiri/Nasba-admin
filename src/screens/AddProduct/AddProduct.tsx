@@ -1,5 +1,4 @@
 import { Page, Title } from "components";
-import { RouteComponentProps } from "react-router";
 import { useSetTabIndex } from "hooks";
 import { 
     Card, 
@@ -11,8 +10,13 @@ import {
 } from "react-bootstrap";
 import "./AddProduct.css";
 import { useHandleAddProduct } from "hooks";
+import { History } from "history";
 
-const AddProduct:React.FC<RouteComponentProps> = ({ history }) =>{
+interface AddProductProps{
+    history: History;
+}
+
+const AddProduct:React.FC<AddProductProps> = ({ history }) =>{
     useSetTabIndex(2);
     const { 
         formState,

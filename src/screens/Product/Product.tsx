@@ -3,7 +3,6 @@ import {
     Modal,
     Carousel
 } from "components";
-import { RouteComponentProps } from "react-router";
 import { useSetTabIndex } from "hooks";
 import { Title } from "components";
 import "./Product.css";
@@ -17,8 +16,13 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { ProductProps } from "types/Product";
+import { History } from "history";
 
-const Product:React.FC<RouteComponentProps> = ({ history }) =>{
+interface ProductComponentProps {
+    history: History;
+}
+
+const Product:React.FC<ProductComponentProps> = ({ history }) =>{
     useSetTabIndex(0);
     const product:ProductProps = useSelector((state: any) => state.productReducer);
     const dispatch = useDispatch();

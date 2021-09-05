@@ -6,10 +6,14 @@ import {
     Button
 } from "react-bootstrap";
 import { Title, Error, Loader } from "components";
-import { RouteComponentProps } from "react-router";
 import { useHandleLogin } from "hooks";
+import { History } from "history";
 
-const Login:React.FC<RouteComponentProps> = ({ history }) =>{
+interface LoginProps {
+    history: History;
+}
+
+const Login:React.FC<LoginProps> = ({ history }) =>{
     const {
         formState,
         handleLogin,

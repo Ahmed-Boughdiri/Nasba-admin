@@ -6,10 +6,14 @@ import {
     Button
 } from "react-bootstrap";
 import { Title, Error, Loader } from "components";
-import { RouteComponentProps } from "react-router";
 import { useHandleSignUp } from "hooks";
+import { History } from "history";
 
-const Signup:React.FC<RouteComponentProps> = ({ history }) =>{
+interface SignupProps {
+    history: History;
+}
+
+const Signup:React.FC<SignupProps> = ({ history }) =>{
     const {
         formState,
         handleSignUp,

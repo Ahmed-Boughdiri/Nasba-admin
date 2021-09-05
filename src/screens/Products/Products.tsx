@@ -4,7 +4,6 @@ import {
     Error,
     Loader
 } from "components";
-import { RouteComponentProps } from "react-router";
 import { 
     useSetTabIndex, 
     useGetProducts,
@@ -18,8 +17,13 @@ import {
 } from "react-bootstrap";
 import "./Product.css";
 import { handleProductStatus } from "utils";
+import { History } from "history";
 
-const Products:React.FC<RouteComponentProps> = ({ history }) =>{
+interface ProductsComponentProps {
+    history: History;
+}
+
+const Products:React.FC<ProductsComponentProps> = ({ history }) =>{
     useSetTabIndex(0);
     const {
         products,

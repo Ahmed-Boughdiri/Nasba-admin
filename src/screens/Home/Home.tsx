@@ -1,8 +1,12 @@
 import { useHandleTryToAuthenticate } from "hooks";
-import { RouteComponentProps } from "react-router-dom";
 import { Loader } from "components";
+import { History } from "history";
 
-const Home:React.FC<RouteComponentProps> = ({ history }) =>{
+interface HomeProps {
+    history: History;
+}
+
+const Home:React.FC<HomeProps> = ({ history }) =>{
     useHandleTryToAuthenticate(history);
     return (
         <Loader type="SCREEN" />

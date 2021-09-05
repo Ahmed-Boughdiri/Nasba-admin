@@ -4,7 +4,6 @@ import {
     Error,
     Loader
 } from "components";
-import { RouteComponentProps } from "react-router";
 import { 
     useSetTabIndex, 
     useGetDeliveries,
@@ -16,8 +15,13 @@ import {
     Table,
     Button
 } from "react-bootstrap";
+import { History } from "history";
 
-const Deliveries:React.FC<RouteComponentProps> = ({ history }) =>{
+interface DeliveriesProps {
+    history: History;
+}
+
+const Deliveries:React.FC<DeliveriesProps> = ({ history }) =>{
     useSetTabIndex(1);
     const {
         deliveries,

@@ -4,7 +4,6 @@ import {
     Error,
     Loader
 } from "components";
-import { RouteComponentProps } from "react-router";
 import { 
     useSetTabIndex, 
     useGetCompletedDeliveries,
@@ -16,8 +15,13 @@ import {
     Button
 } from "react-bootstrap";
 import "./CompletedDeliveries.css";
+import { History } from "history";
 
-const CompletedDeliveries:React.FC<RouteComponentProps> = ({ history }) =>{
+interface CompletedDeliveriesProps {
+    history: History;
+}
+
+const CompletedDeliveries:React.FC<CompletedDeliveriesProps> = ({ history }) =>{
     useSetTabIndex(3);
     const {
         completedDeliveries,
