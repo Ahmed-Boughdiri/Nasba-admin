@@ -5,7 +5,9 @@ import { ProductProps } from "types/Product";
 const useGetProducts = () =>{
     const [products, setProducts] = useState<ProductProps[]>([]);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const getProducts = async() =>{
+        setLoading(true);
         try {
             const data = await sendQuery(`
                 query {
@@ -21,10 +23,11 @@ const useGetProducts = () =>{
                     }
                 }
             `);
-            console.log("Data: ", data.products);
             setProducts(data.products);
+            setLoading(false);
         } catch(err) {
             setError("An Error Has Occured While Trying To Load Products Please Try Again");
+            setLoading(false);
         }
     }
     useEffect(() =>{
@@ -32,7 +35,8 @@ const useGetProducts = () =>{
     }, []);
     return {
         products,
-        error
+        error,
+        loading
     }
 }
 

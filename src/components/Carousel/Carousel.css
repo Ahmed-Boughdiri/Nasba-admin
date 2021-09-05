@@ -1,15 +1,15 @@
 
-.product-details-thumbnails {
+.carousel-component {
     display: flex;
     align-items: center;
     width: 500px;
     margin: 15px auto 0;
 }
-.product-details-thumbnail-container {
-    height: 250px;
+.carousel-component-container {
+    height: fit-content;
     margin-right: 20px;
 }
-.product-details-thumbnail-container>img {
+.carousel-component-container>img {
     height: 100%;
     cursor: pointer;
 }

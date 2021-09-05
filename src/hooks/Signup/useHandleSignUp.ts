@@ -12,8 +12,10 @@ const useHandleSignUp = (history: History) =>{
     const formState = useHandleState();
     const [error, setError] = useState("");
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
     const handleSignUp = async() =>{
         try {
+            setLoading(true);
             const { error } = SignUpSchema.validate({
                 fullName: formState.state.fullName,
                 email: formState.state.email,
@@ -51,18 +53,20 @@ const useHandleSignUp = (history: History) =>{
                 }
             });
             history.push("/products");
-        } catch(err) {
+        } catch(err:any) {
             console.log(err)
             setError(
                 err.response?.data.errors[0].message ||
                 "An Error Has Occured While Trying To Signup Please Try Again"
             );
+            setLoading(false);
         }
     }
     return {
         formState,
         handleSignUp,
-        error
+        error,
+        loading
     }
 }
 

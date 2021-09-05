@@ -5,8 +5,10 @@ import { DeliveryProps } from "types/Delivery";
 const useGetDeliveries = () =>{
     const [deliveries, setDeliveries] = useState<DeliveryProps[]>([]);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const getDeliveries = async() =>{
         try {
+            setLoading(true);
             const result = await sendQuery(`
                 query {
                     pendingDeliveries {
@@ -31,8 +33,10 @@ const useGetDeliveries = () =>{
                 }
             `);
             setDeliveries(result.pendingDeliveries);
+            setLoading(false);
         } catch(err) {
             setError("An Error Occured While Trying To Load Deliveries, Please Try Again");
+            setLoading(false);
         }
     }
     useEffect(() =>{
@@ -40,7 +44,8 @@ const useGetDeliveries = () =>{
     }, []);
     return {
         deliveries,
-        error
+        error,
+        loading
     };
 }
 

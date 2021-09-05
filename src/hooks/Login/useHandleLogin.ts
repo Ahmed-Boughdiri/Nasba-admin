@@ -12,8 +12,10 @@ const useHandleLogin = (history: History) =>{
     const formState = useHandleFormState();
     const dispatch = useDispatch();
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const handleLogin = async() =>{
         try {
+            setLoading(true);
             const result = await sendQuery(`
                 query {
                     adminPanelLogin(adminPanelLoginInput: {
@@ -48,18 +50,21 @@ const useHandleLogin = (history: History) =>{
                 history.push("/products");
             } else {
                 setError("User Not Approved Yet");
+                setLoading(false);
             }
-        } catch(err) {
+        } catch(err: any) {
             setError(
                 err?.response?.data.errors[0].message ||
                 "An Error Occured When Trying To Login Please Try Again"
             );
+            setLoading(false);
         }
     }
     return {
         formState,
         handleLogin,
-        error
+        error,
+        loading
     }
 }
 

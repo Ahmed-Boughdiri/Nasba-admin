@@ -10,11 +10,11 @@ const Carousel:React.FC<{ thumbnails?: String[] }> = ({ thumbnails=[] }) =>{
     const [productThumbnail, setProductThumbnail] = useState("");
     return (
         <>
-            <CarouselComponent className="product-details-thumbnails">
+            <CarouselComponent className="carousel-component">
                 {
                     thumbnails.map(thumbnail =>(
                         <div 
-                            className="product-details-thumbnail-container"
+                            className="carousel-component-container"
                             onClick={() =>{
                                 setProductThumbnail(`http://localhost:5000/${thumbnail}`);
                                 dispatch({
