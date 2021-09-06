@@ -31,7 +31,7 @@ const useHandleDeleteProduct = (
             if(history)
                 history.push("/products");
         } catch(err) {
-            console.log("Error: ", err);
+            return;
         }
     }
     return {

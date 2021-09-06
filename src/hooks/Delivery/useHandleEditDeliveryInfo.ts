@@ -91,7 +91,6 @@ const useHandleEditDeliveryInfo = (
                     }
                 }
             `);
-            console.log("Result: ", result);
             formState.emptyState();
             dispatch({
                 type: "TOGGLE_EDIT_DELIVERY_MODAL",
@@ -100,7 +99,7 @@ const useHandleEditDeliveryInfo = (
             if(history)
                 history.push("deliveries");
         } catch(err) {
-            console.log("Error: ", err);
+            return;
         }  
     } 
     return {

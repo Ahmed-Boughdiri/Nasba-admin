@@ -18,13 +18,13 @@ This Projects includes many small parts that are required for developing differe
 - [Deleting A Delivery](#delete-delivery)
 
 ### <a id="account"></a>Creating An Account:
-In order to create an account, go to the [Sign up Page](http://localhost:3000/signup) and fill out the form with the needed data, next hit the signup button and if the process of logging in went successfully you should redirected to the login page.
+In order to create an account, go to the [Sign up Page](https://nasba-admin.herokuapp.com/signup) and fill out the form with the needed data, next hit the signup button and if the process of logging in went successfully you should redirected to the login page.
 
 
 [![nasba-admin-sign-up.gif](https://s9.gifyu.com/images/nasba-admin-sign-up.gif)](https://gifyu.com/image/GJLs)
 
 ### <a id="login"></a> Logging in:
-This process is pretty straight forward, you go to the [Login Page](http://localhost:3000/login) and enter your email and password, then hit login and if the process of authentification went successfully, you will redirected to the admin home page.  
+This process is pretty straight forward, you go to the [Login Page](https://nasba-admin.herokuapp.com/login) and enter your email and password, then hit login and if the process of authentification went successfully, you will redirected to the admin home page.  
 In case of logging out, click on the email on the navbar, in the admin panel, and then click on the logout option, pretty straight forward, isn't it ;).
 
 [![nasba-admin-login.gif](https://s9.gifyu.com/images/nasba-admin-login.gif)](https://gifyu.com/image/Gems)
@@ -56,7 +56,7 @@ If you want to delete an existing delivery, first of all you need to pick the de
 [![nasba-admin-delete-delivery.gif](https://s9.gifyu.com/images/nasba-admin-delete-delivery.gif)](https://gifyu.com/image/GeI6)
 
 ## Notes:
-As mentioned above this project is part of the Nasba.tn e-commerce platform, if you want to preview the whole CMS you can check out the [e-coomerce store](http://localhost:3000/).
+As mentioned above this project is part of the Nasba.tn e-commerce platform, if you want to preview the whole CMS you can check out the [e-coomerce store](https://nasba.herokuapp.com).
 
 ## Credits:
 This project is fully developed by: Ahmed Boughdiri

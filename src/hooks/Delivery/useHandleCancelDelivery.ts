@@ -33,7 +33,6 @@ const useHandleCancelDelivery = (
                 }
               
             `);
-            console.log("Result: ", result);
             dispatch({
                 type: "TOGGLE_CONFIRM_CANCEL_DELIVERY_MODAL",
                 payload: false
@@ -41,7 +40,7 @@ const useHandleCancelDelivery = (
             if(history)
                 history.push("/deliveries");
         } catch(err) {
-            console.log("Error: ", err);
+            return;
         }
     }
     return {

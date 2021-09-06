@@ -7,7 +7,6 @@ const useHandleMakeDelivery = () =>{
     const dispatch = useDispatch();
     const handleMakeDelivery = async(productID: String) =>{
         try {
-            console.log("productID: ", productID)
             const result = await sendQuery(`
                 mutation {
                     createDelivery(delivery: {
@@ -38,14 +37,13 @@ const useHandleMakeDelivery = () =>{
                     }
                 }
             `);
-            console.log("Result: ", result.createDelivery);
             dispatch({
                 type: "TOGGLE_MAKE_DELIVERY_MODAL",
                 payload: false
             });
             formState.emptyState();
         } catch(err) {
-            console.log("Error: ", err);
+            return;
         }
     }
     return {

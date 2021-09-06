@@ -27,7 +27,6 @@ const useHandleTryToAuthenticate = (history: History) =>{
                     }
                 }
             `);
-            console.log("Result: ", result.adminPanelTokenAuthenticate);
             if(
                 !result.adminPanelTokenAuthenticate.success ||
                 !result.adminPanelTokenAuthenticate.approved

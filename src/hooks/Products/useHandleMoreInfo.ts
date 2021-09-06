@@ -5,7 +5,6 @@ import { History } from "history";
 const useHandleMoreInfo = (history: History) =>{
     const dispatch = useDispatch();
     const handleMoreInfo = (product: ProductProps) =>{
-        console.log("Product: ", product);
         dispatch({
             type: "STORE_PRODUCT_DATA",
             payload: product

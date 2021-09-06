@@ -32,7 +32,6 @@ const useHandleConfirmDelivery = (
                     }
                 }
             `);
-            console.log("Result: ", result);
             dispatch({
                 type: "TOGGLE_CONFIRM_DELIVERY_MODAL",
                 payload: false,
@@ -40,7 +39,7 @@ const useHandleConfirmDelivery = (
             if(history)
                 history.push("/deliveries");
         } catch(err) {
-            console.log("Error: ", err);
+            return;
         }
     }
     return {

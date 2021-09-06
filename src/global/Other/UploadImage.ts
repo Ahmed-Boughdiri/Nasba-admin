@@ -6,7 +6,6 @@ export default async function(
     productID: String
 ) {
     const data = new FormData();
-    console.log("Images: ", images);
     if(images) {
         for(let i=0;i<images.length;i++)
             data.append("images", images[i] as Blob);

@@ -8,7 +8,6 @@ const useHandleAddProduct = (history: History) =>{
     const formState = useHandleFormState();
     const dispatch = useDispatch();
     const handleAddProduct = async() =>{
-        console.log("State: ", formState.state);
         try {
             const result = await sendQuery(`
                 mutation {
@@ -46,7 +45,7 @@ const useHandleAddProduct = (history: History) =>{
             });
             history.push("/product");
         } catch(err) {
-            console.log(err);
+            return;
         }
     }
     return {

@@ -54,7 +54,6 @@ const useHandleSignUp = (history: History) =>{
             });
             history.push("/products");
         } catch(err:any) {
-            console.log(err)
             setError(
                 err.response?.data.errors[0].message ||
                 "An Error Has Occured While Trying To Signup Please Try Again"
